@@ -1,0 +1,52 @@
+Regras fuzzy para o controlador Chaveado
+Reconfiguração Adaptativa
+Talvez inserir mudanças no ponto de equilíbrio
+%%Medir os valores durante alguns segundos ao invés de pegar o máximo global)
+3000 pontos
+
+Problema de Classificação: Falha de sensor de corrente (circuito aberto,ganho, ruido)
+, falha de sensor de tensão, aumento de carga, redução de carga, aumento de fonte, redução de fonte
+
+Entradas: Erro de Tensão, Erro de Corrente, Resíduo e_y, Leitura da tensão, Leitura da corrente
+(Talvez a derivada também) ou RMS
+Usar medidas mais rápidas. (Até 0.01 s)
+
+
+Universo de discurso:
+
+Tags:
+iLOC: falha de circuito aberto no sensor de corrente 
+iLGD: falha de desvio de ganho no ||
+iLNO: falha de ruido no sensor de corrente 
+VcOC: 
+VcGD: 
+VcNO: 
+LoAdd: Aumento de carga 
+LoRem: Redução de Carga 
+SoAdd: Aumento de Fonte 
+SoRem: 
+
+iLErr: Erro de corrente - Max: Min:
+VcErr: Erro de tensão - Max: Min:
+iLErrAbs - Max: Min:
+VcErrAbs - Max: Min:
+J: resíduo - Max: Min:
+Vc: Leitura de tensão - Max: Min:
+iL: leitura de Corrente - Max: Min:
+Jobs: Resíduo do estado real e observado - Max: Min:
+
+Valores Positivos
+EL: Extremamente baixo 
+VL: Muito baixo (Very Low)
+LO: Baixo (Low)
+ME: Médio (Medium)
+HI: High
+VH: Very High
+ZE: Zero
+EH: Extremamente alto
+
+Valores Negativos (O valor absoluto)
+MVL 
+
+Regras:
+If VcErrAbs is VH AND iLErrAbs is VH AND J is HI AND Vc is VL AND iL is VL then iLOC
